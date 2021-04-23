@@ -61,6 +61,7 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
 
+
 class Recipe(models.Model):
     """Recipe object"""
     user = models.ForeignKey(
@@ -74,5 +75,5 @@ class Recipe(models.Model):
     ingredients = models.ManyToManyField('Ingredient')
     tags = models.ManyToManyField('Tag')
 
-    def __str___(self):
+    def __str__(self):
         return self.title
