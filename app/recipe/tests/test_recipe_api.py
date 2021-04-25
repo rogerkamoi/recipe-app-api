@@ -22,6 +22,7 @@ def image_upload_url(recipe_id):
     """Return url for recipe image upload"""
     return reverse('recipe:recipe-upload-image', args=[recipe_id])
 
+
 def detail_url(recipe_id):
     """Return recipe detail URL"""
     return reverse('recipe:recipe-detail', args=[recipe_id])
@@ -220,7 +221,7 @@ class RecipeImageUploadTests(TestCase):
     def test_upload_image_to_recipe(self):
         """Test uploading an email to recipe"""
         url = image_upload_url(self.recipe.id)
-        with tempfile.NamedTemporaryFile(suffix='jpg') as ntf:
+        with tempfile.NamedTemporaryFile(suffix='.jpg') as ntf:
             img = Image.new('RGB', (10, 10))
             img.save(ntf, format='JPEG')
             ntf.seek(0)
